@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Announcements at Brookwell School</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="min-h-screen text-slate-100">
+    <header class="site-header">
+      <div class="topbar">
+        <p>Brookwell Harmony School</p>
+      </div>
+      <div class="nav-wrap">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">B</span>
+          <span>
+            <strong>Brookwell Harmony School</strong>
+            <small>Learning is fun</small>
+          </span>
+        </a>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="academics.html">Academics</a>
+          <a href="admissions.html">Admissions</a>
+          <a href="announcements.html" class="active">Announcements</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero rounded-[28px] border border-white/20 bg-white/10 shadow-2xl backdrop-blur-md">
+        <h1 class="text-4xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-300 to-orange-400 drop-shadow-[0_4px_10px_rgba(0,0,0,0.35)] md:text-5xl">Announcements</h1>
+        <p class="max-w-3xl text-lg text-slate-100/90">Stay informed with the latest updates from Brookwell Harmony School.</p>
+      </section>
+
+      <section class="section">
+        <div class="announcement-list">
+          <article class="announcement-item transition duration-300 hover:-translate-y-1 hover:shadow-2xl">
+            <h3>Open Day on 20 July</h3>
+            <p>Families are invited for a tour, student showcase and teacher introductions.</p>
+          </article>
+          <article class="announcement-item transition duration-300 hover:-translate-y-1 hover:shadow-2xl">
+            <h3>Mid-Term Break</h3>
+            <p>Students will break from 24 August to 28 August and resume on 29 August.</p>
+          </article>
+          <article class="announcement-item transition duration-300 hover:-translate-y-1 hover:shadow-2xl">
+            <h3>Sports Festival</h3>
+            <p>Join us for athletics, music and fun games on 10 September.</p>
+          </article>
+          <article class="announcement-item transition duration-300 hover:-translate-y-1 hover:shadow-2xl">
+            <h3>Parent-Teacher Meeting</h3>
+            <p>Parents are invited to meet teachers and discuss learner progress on 15 September.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Brookwell School. All rights reserved.</p>
+    </footer>
+
+    <a class="whatsapp-float" href="https://wa.me/254700000000?text=Hello%20Brookwell%20School%2C%20I%20would%20like%20to%20inquire%20about%20admissions." target="_blank" rel="noopener noreferrer">💬</a>
+
+    <script src="script.js"></script>
+  </body>
+</html>
