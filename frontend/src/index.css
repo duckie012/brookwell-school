@@ -1,0 +1,7 @@
+@import "./styles/colors.css";
+@import "./styles/typography.css";
+@import "./styles/animations.css";
+@import "./styles/globals.css";
+
+@import "tailwindcss/preflight";
+@tailwind utilities;

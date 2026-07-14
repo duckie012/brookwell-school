@@ -1,0 +1,37 @@
+:root {
+
+  /* Brand Colors */
+
+  --primary: #6D28D9;
+  --primary-dark: #5B21B6;
+  --primary-light: #A78BFA;
+
+  --secondary: #111827;
+
+  --accent: #F59E0B;
+
+  --success: #10B981;
+
+  --danger: #EF4444;
+
+  --warning: #FBBF24;
+
+  --info: #3B82F6;
+
+  /* Background */
+
+  --background: #F9FAFB;
+
+  --surface: #FFFFFF;
+
+  --surface-dark: #1F2937;
+
+  /* Text */
+
+  --text-primary: #111827;
+
+  --text-secondary: #6B7280;
+
+  --text-light: #FFFFFF;
+
+}
