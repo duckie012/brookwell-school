@@ -1,16 +1,24 @@
-from flask import jsonify
-from models.announcement import Announcement
+from flask import jsonify, request
+from flask_jwt_extended import jwt_required
+
+from services.announcement_service import (
+    create_announcement,
+    get_announcements,
+)
 
 
 def get_all_announcements():
-    announcements = Announcement.query.all()
+    announcements = get_announcements()
+    return jsonify(announcements)
 
-    return jsonify([
-        {
-            "id": a.id,
-            "title": a.title,
-            "content": a.content,
-            "important": a.important,
-        }
-        for a in announcements
-    ])
+
+@jwt_required()
+def add_announcement():
+    data = request.get_json()
+
+    result = create_announcement(data)
+
+    if result["success"]:
+        return jsonify(result), 201
+
+    return jsonify(result), 400

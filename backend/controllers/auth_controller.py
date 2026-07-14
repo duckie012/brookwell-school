@@ -1,25 +1,28 @@
 from flask import jsonify, request
 
+from services.auth_service import (
+    register_user,
+    login_user,
+)
+
 
 def register():
     data = request.get_json()
 
-    return jsonify(
-        {
-            "success": True,
-            "message": "Register endpoint reached.",
-            "received": data,
-        }
-    )
+    result = register_user(data)
+
+    if result["success"]:
+        return jsonify(result), 201
+
+    return jsonify(result), 400
 
 
 def login():
     data = request.get_json()
 
-    return jsonify(
-        {
-            "success": True,
-            "message": "Login endpoint reached.",
-            "received": data,
-        }
-    )
+    result = login_user(data)
+
+    if result["success"]:
+        return jsonify(result), 200
+
+    return jsonify(result), 401
