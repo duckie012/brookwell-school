@@ -1,29 +1,46 @@
 import { motion } from "framer-motion";
+import { BellRing } from "lucide-react";
 
 function AnnouncementHero() {
   return (
-    <section
-      className="relative h-[60vh] bg-cover bg-center flex items-center justify-center"
-      style={{
-        backgroundImage:
-          "url('/images/backgrounds/announcements.jpg')",
-      }}
-    >
-      <div className="absolute inset-0 bg-black/65"></div>
+    <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-gradient-to-br from-purple-900 via-purple-800 to-purple-700">
 
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="relative text-center text-white px-6"
-      >
-        <h1 className="text-6xl font-extrabold">
-          School Announcements
-        </h1>
+      <div className="absolute inset-0 bg-black/40"></div>
 
-        <p className="mt-6 text-xl max-w-3xl mx-auto">
-          Stay informed with the latest news, notices and upcoming events.
-        </p>
-      </motion.div>
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 text-white">
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: .7 }}
+          className="max-w-3xl"
+        >
+
+          <div className="inline-flex items-center gap-3 bg-white/10 px-5 py-2 rounded-full">
+
+            <BellRing size={20} />
+
+            <span>School Updates</span>
+
+          </div>
+
+          <h1 className="mt-8 text-5xl lg:text-7xl font-black">
+
+            Latest Announcements
+
+          </h1>
+
+          <p className="mt-8 text-lg leading-9 text-purple-100">
+
+            Stay informed with the latest school news, academic updates,
+            upcoming events and important notices.
+
+          </p>
+
+        </motion.div>
+
+      </div>
+
     </section>
   );
 }

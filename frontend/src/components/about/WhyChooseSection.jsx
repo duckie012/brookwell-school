@@ -1,68 +1,61 @@
-import {
-  GraduationCap,
-  Church,
-  Trophy,
-  Users,
-} from "lucide-react";
-
-const reasons = [
-  {
-    title: "Experienced Teachers",
-    icon: GraduationCap,
-    description: "Dedicated educators committed to every learner's success.",
-  },
-  {
-    title: "Christian Values",
-    icon: Church,
-    description: "A strong moral and spiritual foundation for every child.",
-  },
-  {
-    title: "Talent Development",
-    icon: Trophy,
-    description: "Sports, clubs and performing arts help learners discover their gifts.",
-  },
-  {
-    title: "Individual Attention",
-    icon: Users,
-    description: "Small class sizes encourage personalized learning.",
-  },
-];
+import { CheckCircle2 } from "lucide-react";
 
 function WhyChooseSection() {
+  const reasons = [
+    "Qualified & Caring Teachers",
+    "CBC Curriculum",
+    "Modern Learning Environment",
+    "Strong Christian Foundation",
+    "Excellent Academic Performance",
+    "Sports & Talent Development",
+    "Safe School Transport",
+    "Parent Partnership",
+  ];
+
   return (
-    <section className="py-20 bg-white dark:bg-gray-900">
+    <section className="py-24 bg-white dark:bg-gray-950">
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
-        <h2 className="text-4xl font-bold text-center mb-14">
-          Why Parents Choose Brookwell
-        </h2>
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div>
 
-          {reasons.map((reason) => {
-            const Icon = reason.icon;
+            <span className="uppercase font-semibold text-purple-600">
+              Why Brookwell?
+            </span>
 
-            return (
+            <h2 className="mt-5 text-5xl font-bold dark:text-white">
+              Why Parents Choose Us
+            </h2>
+
+            <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">
+              We believe education goes beyond academics by nurturing values,
+              leadership, creativity and confidence in every learner.
+            </p>
+
+          </div>
+
+          <div className="space-y-5">
+
+            {reasons.map((reason) => (
+
               <div
-                key={reason.title}
-                className="bg-purple-700 text-white rounded-2xl p-8 text-center hover:scale-105 transition"
+                key={reason}
+                className="flex items-center gap-4 rounded-2xl bg-purple-50 dark:bg-gray-900 p-5"
               >
-                <Icon
-                  size={50}
-                  className="mx-auto mb-6"
-                />
 
-                <h3 className="text-xl font-bold mb-4">
-                  {reason.title}
-                </h3>
+                <CheckCircle2 className="text-purple-600" />
 
-                <p className="text-purple-100">
-                  {reason.description}
-                </p>
+                <span className="font-medium dark:text-white">
+                  {reason}
+                </span>
+
               </div>
-            );
-          })}
+
+            ))}
+
+          </div>
 
         </div>
 

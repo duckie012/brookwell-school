@@ -2,47 +2,95 @@ import {
   MapPin,
   Phone,
   Mail,
-  Bus,
+  Clock,
 } from "lucide-react";
 
 function ContactInfo() {
   return (
-    <section className="py-20 bg-white dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-20 bg-white dark:bg-gray-950">
 
-        <h2 className="text-4xl font-bold text-center mb-14">
-          Get In Touch
-        </h2>
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-          <div className="bg-purple-700 text-white p-8 rounded-2xl text-center">
-            <MapPin className="mx-auto mb-5" size={45} />
-            <h3 className="text-xl font-bold mb-3">Location</h3>
-            <p>Nanyuki, Kenya</p>
+          <div className="rounded-3xl bg-purple-50 dark:bg-gray-900 p-8 shadow-lg">
+
+            <MapPin className="text-purple-700" size={34} />
+
+            <h3 className="mt-6 text-xl font-bold dark:text-white">
+
+              Visit Us
+
+            </h3>
+
+            <p className="mt-3 text-gray-600 dark:text-gray-400">
+
+              Nanyuki, Kenya
+
+            </p>
+
           </div>
 
-          <div className="bg-white dark:bg-gray-800 shadow-lg p-8 rounded-2xl text-center">
-            <Phone className="mx-auto mb-5 text-purple-700" size={45} />
-            <h3 className="text-xl font-bold mb-3">Phone</h3>
-            <p>+254 XXX XXX XXX</p>
+          <div className="rounded-3xl bg-purple-50 dark:bg-gray-900 p-8 shadow-lg">
+
+            <Phone className="text-purple-700" size={34} />
+
+            <h3 className="mt-6 text-xl font-bold dark:text-white">
+
+              Call Us
+
+            </h3>
+
+            <p className="mt-3 text-gray-600 dark:text-gray-400">
+
+              +254 XXX XXX XXX
+
+            </p>
+
           </div>
 
-          <div className="bg-white dark:bg-gray-800 shadow-lg p-8 rounded-2xl text-center">
-            <Mail className="mx-auto mb-5 text-purple-700" size={45} />
-            <h3 className="text-xl font-bold mb-3">Email</h3>
-            <p>info@brookwell.ac.ke</p>
+          <div className="rounded-3xl bg-purple-50 dark:bg-gray-900 p-8 shadow-lg">
+
+            <Mail className="text-purple-700" size={34} />
+
+            <h3 className="mt-6 text-xl font-bold dark:text-white">
+
+              Email
+
+            </h3>
+
+            <p className="mt-3 text-gray-600 dark:text-gray-400">
+
+              info@brookwell.ac.ke
+
+            </p>
+
           </div>
 
-          <div className="bg-white dark:bg-gray-800 shadow-lg p-8 rounded-2xl text-center">
-            <Bus className="mx-auto mb-5 text-purple-700" size={45} />
-            <h3 className="text-xl font-bold mb-3">Transport</h3>
-            <p>School buses available.</p>
+          <div className="rounded-3xl bg-purple-50 dark:bg-gray-900 p-8 shadow-lg">
+
+            <Clock className="text-purple-700" size={34} />
+
+            <h3 className="mt-6 text-xl font-bold dark:text-white">
+
+              Office Hours
+
+            </h3>
+
+            <p className="mt-3 text-gray-600 dark:text-gray-400">
+
+              Mon - Fri <br />
+
+              8:00 AM - 5:00 PM
+
+            </p>
+
           </div>
 
         </div>
 
       </div>
+
     </section>
   );
 }

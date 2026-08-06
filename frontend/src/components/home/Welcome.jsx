@@ -1,39 +1,155 @@
+import { motion } from "framer-motion";
+import { BookOpen, Eye, Target, Award } from "lucide-react";
+
+import schoolImage from "../../assets/images/hero/hero-1.jpg";
 import { school } from "../../config/school";
 
 function Welcome() {
+  const features = [
+    {
+      icon: <Eye size={30} />,
+      title: "Our Vision",
+      description:
+        school.vision,
+    },
+    {
+      icon: <Target size={30} />,
+      title: "Our Mission",
+      description:
+        school.mission,
+    },
+    {
+      icon: <Award size={30} />,
+      title: "Excellence",
+      description:
+        "We strive to inspire confidence, discipline, creativity and academic excellence in every learner.",
+    },
+    {
+      icon: <BookOpen size={30} />,
+      title: "Holistic Learning",
+      description:
+        "Education goes beyond books. We nurture talents, leadership and positive character.",
+    },
+  ];
+
   return (
-    <section className="py-20 bg-white dark:bg-gray-900 transition-colors">
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+    <section className="py-24 bg-white dark:bg-gray-950">
 
-        <div>
-          <h2 className="text-4xl font-bold mb-6 text-purple-700">
-            Welcome to {school.name}
-          </h2>
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
-          <p className="text-gray-600 dark:text-gray-300 leading-8 mb-6">
-            At Brookwell Harmony School, we believe every child has unique
-            potential. We provide a nurturing Christian environment where
-            learners develop academically, socially and spiritually while
-            discovering their talents.
-          </p>
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
 
-          <p className="text-gray-600 dark:text-gray-300 leading-8">
-            We proudly offer quality education from Play Group to Grade 7,
-            preparing learners with strong values and lifelong skills.
-          </p>
-        </div>
+          {/* Left Side */}
 
-        <div className="bg-purple-700 rounded-2xl p-10 text-white shadow-xl">
-          <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
+          <motion.div
+            initial={{ opacity: 0, x: -80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: .8 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <img
+              src={schoolImage}
+              alt="Brookwell Harmony School"
+              className="rounded-3xl shadow-2xl object-cover w-full h-162.5"
+            />
 
-          <p className="mb-8">{school.vision}</p>
+            {/* Floating Card */}
 
-          <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
+            <div className="absolute -bottom-10 -right-6 bg-purple-600 text-white rounded-3xl p-8 shadow-2xl">
 
-          <p>{school.mission}</p>
+              <h2 className="text-4xl font-bold">15+</h2>
+
+              <p className="mt-2">
+                Years of Educational Excellence
+              </p>
+
+            </div>
+          </motion.div>
+
+          {/* Right Side */}
+
+          <motion.div
+            initial={{ opacity: 0, x: 80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: .8 }}
+            viewport={{ once: true }}
+          >
+            <span className="text-purple-600 uppercase tracking-widest font-semibold">
+
+              Welcome to {school.name}
+
+            </span>
+
+            <h2 className="mt-5 text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+
+              Building Bright Futures Through Quality Education
+
+            </h2>
+
+            <p className="mt-8 text-gray-600 dark:text-gray-400 leading-8">
+
+              At Brookwell Harmony School, we believe that every child is
+              unique and deserves an environment where learning is exciting,
+              engaging and inspiring. Our dedicated teachers provide
+              individualized attention while promoting academic excellence,
+              creativity, leadership and moral values.
+
+            </p>
+
+            <p className="mt-6 text-gray-600 dark:text-gray-400 leading-8">
+
+              We are committed to creating a safe, nurturing and inclusive
+              environment where learners develop confidence, curiosity and
+              lifelong skills that prepare them for future success.
+
+            </p>
+
+            {/* Feature Cards */}
+
+            <div className="grid sm:grid-cols-2 gap-6 mt-12">
+
+              {features.map((feature, index) => (
+
+                <motion.div
+                  key={index}
+                  whileHover={{
+                    y: -8,
+                    transition: { duration: .3 },
+                  }}
+                  className="rounded-2xl border border-purple-100 dark:border-gray-800 bg-purple-50 dark:bg-gray-900 p-6 shadow-sm hover:shadow-xl transition-all"
+                >
+
+                  <div className="w-14 h-14 rounded-full bg-purple-600 text-white flex items-center justify-center mb-5">
+
+                    {feature.icon}
+
+                  </div>
+
+                  <h3 className="font-bold text-xl text-gray-900 dark:text-white">
+
+                    {feature.title}
+
+                  </h3>
+
+                  <p className="mt-3 text-gray-600 dark:text-gray-400 leading-7">
+
+                    {feature.description}
+
+                  </p>
+
+                </motion.div>
+
+              ))}
+
+            </div>
+
+          </motion.div>
+
         </div>
 
       </div>
+
     </section>
   );
 }

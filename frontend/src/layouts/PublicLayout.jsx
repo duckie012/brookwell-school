@@ -1,12 +1,19 @@
-import React from 'react';
+import { Outlet } from "react-router-dom";
 
-const PublicLayout = ({ children }) => {
+import Navbar from "../components/layout/Navbar";
+import Footer from "../components/layout/Footer";
+
+const PublicLayout = () => {
   return (
-    <div>
-      <header>Public Header</header>
-      <main>{children}</main>
-      <footer>Public Footer</footer>
-    </div>
+    <>
+      <Navbar />
+
+      <main className="min-h-screen">
+        <Outlet />
+      </main>
+
+      <Footer />
+    </>
   );
 };
 

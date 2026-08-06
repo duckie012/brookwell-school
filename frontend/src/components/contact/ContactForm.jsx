@@ -1,53 +1,65 @@
+import { Send } from "lucide-react";
+
 function ContactForm() {
   return (
-    <section className="py-20 bg-gray-100 dark:bg-gray-800">
-      <div className="max-w-5xl mx-auto px-6">
+    <section className="py-24 bg-gray-50 dark:bg-gray-900">
 
-        <h2 className="text-4xl font-bold text-center mb-12">
-          Send Us a Message
-        </h2>
+      <div className="max-w-4xl mx-auto px-6">
 
-        <form className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-10 space-y-6">
+        <div className="bg-white dark:bg-gray-950 rounded-3xl shadow-xl p-10">
 
-          <input
-            type="text"
-            placeholder="Full Name"
-            className="w-full p-4 rounded-lg border"
-          />
+          <h2 className="text-4xl font-black text-center dark:text-white">
 
-          <input
-            type="email"
-            placeholder="Email Address"
-            className="w-full p-4 rounded-lg border"
-          />
+            Send Us A Message
 
-          <input
-            type="tel"
-            placeholder="Phone Number"
-            className="w-full p-4 rounded-lg border"
-          />
+          </h2>
 
-          <input
-            type="text"
-            placeholder="Subject"
-            className="w-full p-4 rounded-lg border"
-          />
+          <form className="mt-12 space-y-6">
 
-          <textarea
-            rows="6"
-            placeholder="Your Message"
-            className="w-full p-4 rounded-lg border"
-          />
+            <div className="grid md:grid-cols-2 gap-6">
 
-          <button
-            className="bg-purple-700 text-white px-10 py-4 rounded-lg hover:bg-purple-800 transition"
-          >
-            Send Message
-          </button>
+              <input
+                type="text"
+                placeholder="Full Name"
+                className="rounded-xl border p-4 dark:bg-gray-900 dark:border-gray-700 dark:text-white"
+              />
 
-        </form>
+              <input
+                type="email"
+                placeholder="Email Address"
+                className="rounded-xl border p-4 dark:bg-gray-900 dark:border-gray-700 dark:text-white"
+              />
+
+            </div>
+
+            <input
+              type="text"
+              placeholder="Subject"
+              className="w-full rounded-xl border p-4 dark:bg-gray-900 dark:border-gray-700 dark:text-white"
+            />
+
+            <textarea
+              rows="6"
+              placeholder="Your Message..."
+              className="w-full rounded-xl border p-4 dark:bg-gray-900 dark:border-gray-700 dark:text-white"
+            ></textarea>
+
+            <button
+              className="flex items-center gap-2 bg-purple-700 text-white px-8 py-4 rounded-xl hover:bg-purple-800 transition"
+            >
+
+              Send Message
+
+              <Send size={18} />
+
+            </button>
+
+          </form>
+
+        </div>
 
       </div>
+
     </section>
   );
 }

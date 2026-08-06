@@ -1,28 +1,47 @@
 import { motion } from "framer-motion";
+import { PhoneCall } from "lucide-react";
 
 function ContactHero() {
   return (
-    <section
-      className="relative h-[60vh] flex items-center justify-center bg-cover bg-center"
-      style={{
-        backgroundImage: "url('/images/backgrounds/contact.jpg')",
-      }}
-    >
-      <div className="absolute inset-0 bg-black/65"></div>
+    <section className="relative min-h-[60vh] flex items-center bg-gradient-to-br from-purple-900 via-purple-800 to-purple-700 overflow-hidden">
 
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="relative text-center text-white px-6"
-      >
-        <h1 className="text-6xl font-extrabold">
-          Contact Us
-        </h1>
+      <div className="absolute inset-0 bg-black/40"></div>
 
-        <p className="mt-6 text-xl max-w-3xl mx-auto">
-          We'd love to hear from you. Visit us, call us or send us a message.
-        </p>
-      </motion.div>
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 text-white">
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: .7 }}
+          className="max-w-3xl"
+        >
+
+          <div className="inline-flex items-center gap-3 rounded-full bg-white/10 px-5 py-2">
+
+            <PhoneCall size={20} />
+
+            <span>Get In Touch</span>
+
+          </div>
+
+          <h1 className="mt-8 text-5xl lg:text-7xl font-black">
+
+            We'd Love To Hear From You
+
+          </h1>
+
+          <p className="mt-8 text-lg leading-9 text-purple-100">
+
+            Whether you're making an admission enquiry,
+            booking a school tour or simply looking for more
+            information, we're here to help.
+
+          </p>
+
+        </motion.div>
+
+      </div>
+
     </section>
   );
 }

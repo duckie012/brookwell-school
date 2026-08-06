@@ -1,27 +1,89 @@
-import { school } from "../../config/school";
+import { motion } from "framer-motion";
+import {
+  Music4,
+  Dumbbell,
+  Trophy,
+  BookOpen,
+  Trees,
+  Waves,
+} from "lucide-react";
 
 function CoCurricular() {
+  const activities = [
+    {
+      icon: <Music4 size={30} />,
+      title: "Music & Dance",
+    },
+    {
+      icon: <Dumbbell size={30} />,
+      title: "Taekwondo",
+    },
+    {
+      icon: <BookOpen size={30} />,
+      title: "Book Club",
+    },
+    {
+      icon: <Trees size={30} />,
+      title: "Environmental Club",
+    },
+    {
+      icon: <Trophy size={30} />,
+      title: "Scouts",
+    },
+    {
+      icon: <Waves size={30} />,
+      title: "Swimming",
+    },
+  ];
+
   return (
-    <section className="py-20 bg-gray-100 dark:bg-gray-800">
+    <section className="py-24 bg-white dark:bg-gray-950">
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
-        <h2 className="text-center text-4xl font-bold mb-14">
-          Co-Curricular Activities
-        </h2>
+        <div className="text-center max-w-3xl mx-auto">
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <span className="uppercase tracking-widest text-purple-600 font-semibold">
+            Co-Curricular Activities
+          </span>
 
-          {school.activities.map((activity) => (
+          <h2 className="mt-5 text-5xl font-black dark:text-white">
+            Developing Talents Beyond The Classroom
+          </h2>
 
-            <div
-              key={activity}
-              className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-10 text-center"
+          <p className="mt-6 text-lg text-gray-600 dark:text-gray-400">
+            We believe education extends beyond books by nurturing creativity,
+            leadership, teamwork and physical well-being.
+          </p>
+
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+
+          {activities.map((activity) => (
+
+            <motion.div
+              key={activity.title}
+              whileHover={{
+                y: -10,
+              }}
+              className="rounded-3xl border border-purple-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 p-8 shadow-lg"
             >
-              <h3 className="font-bold text-xl text-purple-700">
-                {activity}
+
+              <div className="w-16 h-16 rounded-2xl bg-purple-100 flex items-center justify-center text-purple-600">
+                {activity.icon}
+              </div>
+
+              <h3 className="mt-6 text-2xl font-bold dark:text-white">
+                {activity.title}
               </h3>
-            </div>
+
+              <p className="mt-4 leading-7 text-gray-600 dark:text-gray-400">
+                Learners are encouraged to discover and develop their unique
+                talents through engaging co-curricular programmes.
+              </p>
+
+            </motion.div>
 
           ))}
 

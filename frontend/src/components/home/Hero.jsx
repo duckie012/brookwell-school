@@ -1,178 +1,102 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { GraduationCap, MapPin, School } from "lucide-react";
-import { school } from "../../config/school";
-import Button from "../ui/Button";
+import { ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
+
+import { getHomepageData } from "../../api/homepage";
 
 function Hero() {
-  return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
 
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/images/hero/school-hero.jpg')",
-        }}
-      />
+    const [hero, setHero] = useState(null);
 
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/65"></div>
+    const [loading, setLoading] = useState(true);
 
-      {/* Purple Gradient */}
-      <div className="absolute inset-0 bg-linear-to-r from-purple-900/60 via-transparent to-black/50"></div>
+    useEffect(() => {
 
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
+        async function loadHero() {
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+            try {
 
-          {/* Left Side */}
-          <motion.div
-            initial={{ opacity: 0, x: -80 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+                const data = await getHomepageData();
 
-            <span className="inline-block bg-purple-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              Private Christian School • Nanyuki, Kenya
-            </span>
+                setHero(data.hero);
 
-            <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight">
+            } catch (error) {
 
-              {school.name}
+                console.error(error);
 
-            </h1>
+            } finally {
 
-            <p className="mt-6 text-2xl italic text-purple-200">
-              "{school.motto}"
-            </p>
+                setLoading(false);
 
-            <p className="mt-8 text-lg leading-8 text-gray-200 max-w-2xl">
+            }
 
-              Welcome to Brookwell Harmony School, where learning is enjoyable,
-              talents are nurtured, and every child is inspired to become
-              confident, responsible and successful in life.
+        }
 
-            </p>
+        loadHero();
 
-            {/* Buttons */}
-            <div className="flex flex-wrap gap-5 mt-10">
+    }, []);
 
-              <Button to="/contact">
-                Contact Us
-              </Button>
+    if (loading)
 
-              <Button
-                to="/about"
-                variant="secondary"
-              >
-                Learn More
-              </Button>
+        return (
+            <section className="h-screen flex items-center justify-center">
+                Loading...
+            </section>
+        );
+
+    if (!hero) return null;
+
+    return (
+
+        <section
+            className="relative h-screen bg-cover bg-center"
+            style={{
+                backgroundImage: `url(${hero.backgroundImage})`,
+            }}
+        >
+
+            <div className="absolute inset-0 bg-black/50"></div>
+
+            <div className="relative max-w-7xl mx-auto h-full flex items-center px-6">
+
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="max-w-3xl text-white"
+                >
+
+                    <h1 className="text-6xl font-black">
+
+                        {hero.title}
+
+                    </h1>
+
+                    <p className="mt-8 text-xl">
+
+                        {hero.subtitle}
+
+                    </p>
+
+                    <Link
+                        to="/admissions"
+                        className="inline-flex items-center gap-3 mt-10 bg-purple-700 px-8 py-4 rounded-xl"
+                    >
+
+                        {hero.buttonText}
+
+                        <ChevronRight size={18} />
+
+                    </Link>
+
+                </motion.div>
 
             </div>
 
-          </motion.div>
+        </section>
 
-          {/* Right Side */}
-          <motion.div
-            initial={{ opacity: 0, x: 80 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
-            className="hidden lg:flex justify-center"
-          >
+    );
 
-            <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl p-10 w-full max-w-md shadow-2xl">
-
-              <h3 className="text-white text-3xl font-bold mb-8">
-                Quick Facts
-              </h3>
-
-              <div className="space-y-8">
-
-                <div className="flex items-center gap-4">
-
-                  <GraduationCap
-                    size={40}
-                    className="text-purple-300"
-                  />
-
-                  <div>
-                    <h4 className="text-white font-semibold">
-                      Academic Levels
-                    </h4>
-
-                    <p className="text-gray-300">
-                      Play Group to Grade 7
-                    </p>
-                  </div>
-
-                </div>
-
-                <div className="flex items-center gap-4">
-
-                  <School
-                    size={40}
-                    className="text-purple-300"
-                  />
-
-                  <div>
-                    <h4 className="text-white font-semibold">
-                      School Type
-                    </h4>
-
-                    <p className="text-gray-300">
-                      Private Christian School
-                    </p>
-                  </div>
-
-                </div>
-
-                <div className="flex items-center gap-4">
-
-                  <MapPin
-                    size={40}
-                    className="text-purple-300"
-                  />
-
-                  <div>
-                    <h4 className="text-white font-semibold">
-                      Location
-                    </h4>
-
-                    <p className="text-gray-300">
-                      Nanyuki, Kenya
-                    </p>
-                  </div>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </motion.div>
-
-        </div>
-
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center text-white animate-bounce">
-
-        <span className="text-sm mb-2 tracking-wide">
-          Scroll Down
-        </span>
-
-        <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-
-          <div className="w-1 h-3 bg-white rounded-full mt-2"></div>
-
-        </div>
-
-      </div>
-
-    </section>
-  );
 }
 
 export default Hero;

@@ -1,4 +1,4 @@
-import PublicLayout from "../components/layout/PublicLayout";
+import { useState } from "react";
 
 import AnnouncementHero from "../components/announcements/AnnouncementHero";
 import SearchBar from "../components/announcements/SearchBar";
@@ -8,22 +8,25 @@ import UpcomingEvents from "../components/announcements/UpcomingEvents";
 import NewsletterCTA from "../components/announcements/NewsletterCTA";
 
 function Announcements() {
-  return (
-    <PublicLayout>
+  const [searchTerm, setSearchTerm] = useState("");
 
+  return (
+    <>
       <AnnouncementHero />
 
-      <SearchBar />
+      <SearchBar
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+      />
 
       <FeaturedAnnouncement />
 
-      <AnnouncementList />
+      <AnnouncementList searchTerm={searchTerm} />
 
       <UpcomingEvents />
 
       <NewsletterCTA />
-
-    </PublicLayout>
+    </>
   );
 }
 

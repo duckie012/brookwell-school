@@ -1,19 +1,12 @@
-function SectionTitle({ title, subtitle }) {
+import React from 'react';
+
+const SectionTitle = ({ title, subtitle, className = '' }) => {
   return (
-    <div className="text-center mb-14">
-
-      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
-        {title}
-      </h2>
-
-      <div className="w-24 h-1 bg-purple-700 mx-auto my-6 rounded-full"></div>
-
-      <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-        {subtitle}
-      </p>
-
+    <div className={`mb-6 ${className}`.trim()}>
+      <h2 className="text-2xl font-semibold text-gray-900">{title}</h2>
+      {subtitle ? <p className="mt-2 text-sm text-gray-600">{subtitle}</p> : null}
     </div>
   );
-}
+};
 
 export default SectionTitle;

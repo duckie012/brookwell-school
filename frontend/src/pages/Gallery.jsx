@@ -1,26 +1,31 @@
-import PublicLayout from "../components/layout/PublicLayout";
+import { useState } from "react";
 
 import GalleryHero from "../components/gallery/GalleryHero";
+import SchoolLife from "../components/gallery/SchoolLife";
 import GalleryCategories from "../components/gallery/GalleryCategories";
 import GalleryGrid from "../components/gallery/GalleryGrid";
-import SchoolLife from "../components/gallery/SchoolLife";
 import GalleryCTA from "../components/gallery/GalleryCTA";
 
 function Gallery() {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
   return (
-    <PublicLayout>
-
+    <>
       <GalleryHero />
-
-      <GalleryCategories />
-
-      <GalleryGrid />
 
       <SchoolLife />
 
-      <GalleryCTA />
+      <GalleryCategories
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+      />
 
-    </PublicLayout>
+      <GalleryGrid
+        selectedCategory={selectedCategory}
+      />
+
+      <GalleryCTA />
+    </>
   );
 }
 

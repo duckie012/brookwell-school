@@ -1,37 +1,26 @@
-import Button from "../ui/Button";
+import { Link } from "react-router-dom";
 
 function AboutCTA() {
   return (
-    <section className="py-24 bg-purple-700">
+    <section className="py-24 bg-gradient-to-r from-purple-700 to-purple-900 text-white">
 
-      <div className="max-w-4xl mx-auto text-center text-white px-6">
+      <div className="max-w-5xl mx-auto text-center px-6">
 
-        <h2 className="text-5xl font-bold mb-6">
-          Give Your Child the Best Foundation
+        <h2 className="text-5xl font-bold">
+          Ready to Join Brookwell Harmony School?
         </h2>
 
-        <p className="text-xl leading-8 mb-10">
-
-          Join Brookwell Harmony School and become part of a caring community
-          where learning is fun and every learner is inspired to achieve
-          excellence.
-
+        <p className="mt-6 text-lg leading-8 text-purple-100">
+          Give your child a strong academic foundation in a caring,
+          inspiring and engaging environment.
         </p>
 
-        <div className="flex justify-center gap-5 flex-wrap">
-
-          <Button to="/contact">
-            Contact Us
-          </Button>
-
-          <Button
-            to="/academics"
-            variant="secondary"
-          >
-            Explore Academics
-          </Button>
-
-        </div>
+        <Link
+          to="/admissions"
+          className="inline-block mt-10 rounded-xl bg-white text-purple-700 px-8 py-4 font-semibold hover:scale-105 transition"
+        >
+          Apply for Admission
+        </Link>
 
       </div>
 

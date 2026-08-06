@@ -1,54 +1,48 @@
-import { Target, Eye, BookOpen } from "lucide-react";
+import { Eye, Target } from "lucide-react";
+
 import { school } from "../../config/school";
 
 function VisionMission() {
-  const items = [
-    {
-      icon: Eye,
-      title: "Vision",
-      text: school.vision,
-    },
-    {
-      icon: Target,
-      title: "Mission",
-      text: school.mission,
-    },
-    {
-      icon: BookOpen,
-      title: "Motto",
-      text: school.motto,
-    },
-  ];
-
   return (
-    <section className="py-20 bg-gray-100 dark:bg-gray-800">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-24 bg-gray-50 dark:bg-gray-900">
 
-        <div className="grid md:grid-cols-3 gap-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
-          {items.map((item) => {
-            const Icon = item.icon;
+        <div className="grid lg:grid-cols-2 gap-10">
 
-            return (
-              <div
-                key={item.title}
-                className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-10 text-center hover:-translate-y-2 transition"
-              >
-                <Icon
-                  size={55}
-                  className="mx-auto text-purple-700 mb-6"
-                />
+          <div className="rounded-3xl bg-white dark:bg-gray-950 p-10 shadow-xl">
 
-                <h3 className="text-2xl font-bold mb-4">
-                  {item.title}
-                </h3>
+            <Eye
+              size={40}
+              className="text-purple-600"
+            />
 
-                <p className="text-gray-600 dark:text-gray-300">
-                  {item.text}
-                </p>
-              </div>
-            );
-          })}
+            <h2 className="mt-6 text-3xl font-bold dark:text-white">
+              Our Vision
+            </h2>
+
+            <p className="mt-5 leading-8 text-gray-600 dark:text-gray-400">
+              {school.vision}
+            </p>
+
+          </div>
+
+          <div className="rounded-3xl bg-white dark:bg-gray-950 p-10 shadow-xl">
+
+            <Target
+              size={40}
+              className="text-purple-600"
+            />
+
+            <h2 className="mt-6 text-3xl font-bold dark:text-white">
+              Our Mission
+            </h2>
+
+            <p className="mt-5 leading-8 text-gray-600 dark:text-gray-400">
+              {school.mission}
+            </p>
+
+          </div>
 
         </div>
 

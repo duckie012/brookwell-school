@@ -1,37 +1,27 @@
-:root {
+:root{
 
-  /* Brand Colors */
+    /* Primary Brand */
 
-  --primary: #6D28D9;
-  --primary-dark: #5B21B6;
-  --primary-light: #A78BFA;
+    --primary:#8B5CF6;
+    --primary-dark:#7C3AED;
+    --secondary:#A78BFA;
 
-  --secondary: #111827;
+    /* Accent */
 
-  --accent: #F59E0B;
+    --accent:#FBBF24;
 
-  --success: #10B981;
+    /* Background */
 
-  --danger: #EF4444;
+    --background:#F8F7FF;
 
-  --warning: #FBBF24;
+    /* Text */
 
-  --info: #3B82F6;
+    --text:#1F2937;
 
-  /* Background */
+    --gray:#6B7280;
 
-  --background: #F9FAFB;
+    --white:#ffffff;
 
-  --surface: #FFFFFF;
-
-  --surface-dark: #1F2937;
-
-  /* Text */
-
-  --text-primary: #111827;
-
-  --text-secondary: #6B7280;
-
-  --text-light: #FFFFFF;
+    --success:#22C55E;
 
 }
